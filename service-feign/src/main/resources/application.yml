@@ -8,7 +8,7 @@ spring:
   application:
     name: service-feign
 
-# ¿ªÆôfeign×Ô´ø¶ÏÂ·Æ÷
+# å¼€å¯feignè‡ªå¸¦æ–­è·¯å™¨
 feign:
   hystrix:
     enabled: true
