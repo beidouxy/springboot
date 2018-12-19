@@ -1,0 +1,84 @@
+server:
+    port: 8091
+
+oracle:
+  host: 192.168.210.222
+  port: 1521
+  sid:  orcl
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  datasource:
+    druid:
+      name: oracle
+      url: jdbc:oracle:thin:@${oracle.host}:${oracle.port}/${oracle.sid}
+      username: qlsh_test
+      password: qlsh_test
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      #定义初始连接数
+      initialSize: 5
+      #定义最大连接数
+      maxActive: 50
+      #定义最小空  闲
+      minIdle: 1
+      #定义最长等待时间
+      maxWait: 60000
+      testWhileIdle: true
+      timeBetweenEvictionRunsMillis: 3600000
+      minEvictableIdleTimeMillis: 3600000
+      poolPreparedStatements: false
+      maxOpenPreparedStatements: 0
+      defaultAutoCommit: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 300
+      logAbandoned: false
+  redis:
+    open: true  # 是否开启redis缓存  true开启   false关闭
+    database: 0
+    host: 192.168.210.222
+    port: 6379
+    password:       # 密码（默认为空）
+
+application:
+    security:
+        authentication:
+            jwt:
+                secret: 0550224055e1848081dba46d8ad325f503fa141b
+                # Token is valid 24 hours
+                tokenValidityInSeconds: 86400
+
+mybatis:
+    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
+
+Login:
+    #是否单点登录
+    singleLogin: true
+    #定义初始密码
+    initialPassword: 111111
+    #登录重试数量
+    retryCounts: 5
+    #redisKey失效时间
+    expireTime: 1800
+
+kaptcha:
+    #边框颜色
+    borderColor: 105,179,90
+    #字体颜色
+    fontColor: 255,0,0
+    #字体大小
+    fontSize: 30
+    #图片宽度
+    width: 130
+    #图片高度
+    height: 45
+    #验证码长度
+    length: 4
+    #字体
+    font: 宋体,楷体,微软雅黑
+    #字符
+    text: 3456789bdACEFGJKMNPQRSTUWX
+    #无噪点
+    noise: com.google.code.kaptcha.impl.NoNoise
