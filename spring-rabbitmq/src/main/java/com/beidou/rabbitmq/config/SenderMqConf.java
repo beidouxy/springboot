@@ -2,21 +2,25 @@ package com.beidou.rabbitmq.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @Author: Evan.Wei
  * @Date: 2018/12/19 14:26
+ * @Desc
+ *  rabbitMQ创建queue、exchange，并实现绑定关系
  */
+@Configuration
 public class SenderMqConf {
 
     @Bean
     public Queue helloQueue() {
-        return new Queue("hello");
+        return new Queue("helloQueue");
     }
 
     @Bean
     public Queue userQueue() {
-        return new Queue("user");
+        return new Queue("userQueue");
     }
 
     /**

@@ -11,6 +11,8 @@ import java.util.Map;
 /**
  * @Author: Evan.Wei
  * @Date: 2018/12/19 14:35
+ * @Desc
+ *  对象传输
  */
 @Component
 public class UserSenderService {
